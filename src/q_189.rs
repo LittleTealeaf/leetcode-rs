@@ -2,9 +2,15 @@ struct Solution;
 
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
-        for _ in 0..k {
-            let number = nums.pop().unwrap();
-            nums.insert(0, number);
+        let len = nums.len();
+        let k = k % len as i32;
+        let clone = nums.clone();
+        for i in 0..len {
+            nums[i] = if i < k as usize {
+                clone[len - k as usize + i]
+            } else {
+                clone[i - k as usize]
+            }
         }
     }
 }
