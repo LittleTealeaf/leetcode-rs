@@ -2,11 +2,34 @@ struct Solution;
 
 impl Solution {
     pub fn maximum_product(nums: Vec<i32>) -> i32 {
-        let mut nums = nums.clone();
-        nums.sort();
-        let a = nums[0] * nums[1] * nums.last().unwrap();
-        let b = nums.pop().unwrap() * nums.pop().unwrap() * nums.pop().unwrap();
-        a.max(b)
+        let mut low = [None; 2];
+        let mut high = [None; 3];
+
+        for num in nums {
+            if low[0].is_none() || Some(num) < low[0] {
+                low[1] = low[0];
+                low[0] = Some(num);
+            } else if low[1].is_none() || Some(num) < low[1] {
+                low[1] = Some(num);
+            }
+
+            if high[2].is_none() || Some(num) > high[2] {
+                high[0] = high[1];
+                high[1] = high[2];
+                high[2] = Some(num);
+            } else if high[1].is_none() || Some(num) > high[1] {
+                high[0] = high[1];
+                high[1] = Some(num);
+            } else if high[0].is_none() || Some(num) > high[0] {
+                high[0] = Some(num);
+            }
+        }
+
+        ([low[0], low[1], high[2]]
+            .map(Option::unwrap)
+            .iter()
+            .product::<i32>())
+        .max(high.map(Option::unwrap).iter().product())
     }
 }
 
