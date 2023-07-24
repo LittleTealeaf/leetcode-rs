@@ -57,21 +57,21 @@ impl Solution {
 }
 
 #[test]
-fn test_1() {
+fn example_1() {
     assert_eq!(Solution::range_bitwise_and(5, 7), 4);
 }
 
 #[test]
-fn test_2() {
+fn example_2() {
     assert_eq!(Solution::range_bitwise_and(0, 0), 0);
 }
 
 #[test]
-fn test_3() {
+fn example_3() {
     assert_eq!(Solution::range_bitwise_and(1, 2147483647), 0);
 }
 
 #[test]
-fn test_4() {
+fn test_1() {
     assert_eq!(Solution::range_bitwise_and(2, 6), 0);
 }

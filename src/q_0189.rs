@@ -16,7 +16,7 @@ impl Solution {
 }
 
 #[test]
-fn test_1() {
+fn example_1() {
     let mut values = vec![1, 2, 3, 4, 5, 6, 7];
     let k = 3;
     Solution::rotate(&mut values, k);
@@ -24,7 +24,7 @@ fn test_1() {
 }
 
 #[test]
-fn test_2() {
+fn example_2() {
     let mut values = vec![-1, -100, 3, 99];
     let k = 2;
     Solution::rotate(&mut values, k);
@@ -32,7 +32,7 @@ fn test_2() {
 }
 
 #[test]
-fn test_3() {
+fn example_3() {
     let mut values = vec![-1];
     let k = 2;
     Solution::rotate(&mut values, k);

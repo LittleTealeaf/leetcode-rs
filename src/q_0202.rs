@@ -20,11 +20,11 @@ impl Solution {
 }
 
 #[test]
-fn test_1() {
+fn example_1() {
     assert!(Solution::is_happy(19));
 }
 
 #[test]
-fn test_2() {
+fn example_2() {
     assert!(!Solution::is_happy(2));
 }
